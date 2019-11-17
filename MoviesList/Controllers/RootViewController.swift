@@ -22,24 +22,31 @@ class RootViewController: UIViewController {
             self.tableView.reloadData()
         }
     }
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        tableView.reloadData()
+    }
 }
 
 //MARK: -  UITableViewDataSource
 extension RootViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return movieViewModels.count
+        return movieViewModels.count/2
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "movieCell", for: indexPath) as! MovieCell
-        cell.configureMovieCell(movieViewModel: movieViewModels[indexPath.row])
+        if UIDevice.current.orientation.isLandscape {
+            cell.configureMovieLandscapeCell(movieViewModelFirst: movieViewModels[indexPath.row * 2], movieViewModelSecond: movieViewModels[indexPath.row * 2 + 1])
+        } else if UIDevice.current.orientation.isPortrait {
+             cell.configureMoviePortraitCell(movieViewModel: movieViewModels[indexPath.row])
+        }
         return cell
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         let searchText = searchBar.text ?? ""
-        let lastItem = movieViewModels.count - 1
+        let lastItem = movieViewModels.count/2 - 1
         let page = movieViewModels.count/20 + 1
         if indexPath.row == lastItem {
             if searchText == "" {
