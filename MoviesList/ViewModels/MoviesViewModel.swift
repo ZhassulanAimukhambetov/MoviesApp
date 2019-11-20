@@ -20,6 +20,7 @@ class MovieViewModel {
     let originalLanguage: String
     let backdropPath: String?
     let popularity: String
+    var isFavorite: Bool = false
     var rating: String {
         let star = "⋆"
         if voteAverage > 1 {

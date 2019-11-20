@@ -170,7 +170,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Dgf-bJ-p5x" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1919" y="-1069"/>
+            <point key="canvasLocation" x="1732" y="-1069"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="7jQ-nB-zl2">
@@ -294,6 +294,20 @@
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jOe-Lp-hU3">
+                                                    <rect key="frame" x="325" y="82" width="32" height="32"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="32" id="EUs-yN-XaM"/>
+                                                        <constraint firstAttribute="width" constant="32" id="tr9-su-qlA"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                                    <state key="normal" title="♥︎">
+                                                        <color key="titleColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="buttonTouchDown:" destination="oQI-1r-QGF" eventType="touchDown" id="bV2-nT-ZUd"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                         </view>
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -302,7 +316,9 @@
                                             <constraint firstItem="IBC-gL-FMC" firstAttribute="leading" secondItem="oQI-1r-QGF" secondAttribute="leading" constant="5" id="Igs-bU-k5l"/>
                                             <constraint firstItem="NvZ-y8-T2L" firstAttribute="top" secondItem="oQI-1r-QGF" secondAttribute="topMargin" constant="2" id="TQB-1M-JYy"/>
                                             <constraint firstItem="IBC-gL-FMC" firstAttribute="top" secondItem="oQI-1r-QGF" secondAttribute="top" constant="5" id="TR4-5r-BY5"/>
+                                            <constraint firstAttribute="trailingMargin" secondItem="jOe-Lp-hU3" secondAttribute="trailing" constant="10" id="aLD-kD-SWq"/>
                                             <constraint firstItem="NvZ-y8-T2L" firstAttribute="leading" secondItem="IBC-gL-FMC" secondAttribute="trailing" constant="15" id="bUO-2F-rfs"/>
+                                            <constraint firstItem="jOe-Lp-hU3" firstAttribute="top" secondItem="oQI-1r-QGF" secondAttribute="topMargin" constant="30" id="cYh-NN-mhg"/>
                                             <constraint firstAttribute="bottomMargin" secondItem="Vr8-Z7-1EH" secondAttribute="bottom" constant="0.33000000000000002" id="fUU-Gh-Z1i"/>
                                             <constraint firstAttribute="trailingMargin" secondItem="NvZ-y8-T2L" secondAttribute="trailing" constant="15" id="knd-0Y-x3j"/>
                                             <constraint firstItem="Vr8-Z7-1EH" firstAttribute="leading" secondItem="IBC-gL-FMC" secondAttribute="trailing" constant="22" id="pbT-zr-MM9"/>
@@ -310,6 +326,7 @@
                                         </constraints>
                                         <connections>
                                             <outlet property="dateLabel" destination="wKX-HD-oGN" id="9Qw-KL-Kue"/>
+                                            <outlet property="favoriteButton" destination="jOe-Lp-hU3" id="Z3o-GC-1TB"/>
                                             <outlet property="posterImage" destination="IBC-gL-FMC" id="vzF-Ya-duc"/>
                                             <outlet property="ratingLabel" destination="1cM-aE-4c4" id="V0M-GD-2Lu"/>
                                             <outlet property="titleLabel" destination="NvZ-y8-T2L" id="qD3-Pf-ELM"/>
@@ -347,7 +364,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9Ts-gZ-a40" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-207.19999999999999" y="-320.68965517241378"/>
+            <point key="canvasLocation" x="776.79999999999995" y="-1069.2118226600985"/>
         </scene>
     </scenes>
 </document>

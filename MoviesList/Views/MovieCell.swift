@@ -10,11 +10,13 @@ import UIKit
 
 class MovieCell: UICollectionViewCell {
     
+    @IBOutlet weak var favoriteButton: UIButton!
     @IBOutlet weak var posterImage: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
-    
     @IBOutlet weak var ratingLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
+    
+    weak var viewController: RootViewController?
     
     func configureMovieCVCell(movieViewModel: MovieViewModel, completion: @escaping () -> ()) {
         self.titleLabel.text = movieViewModel.title
@@ -24,5 +26,10 @@ class MovieCell: UICollectionViewCell {
         NetworkService.shared.getImage(urlPath: movieViewModel.posterPath) { (image) in
             self.posterImage.image = image
         }
+        self.favoriteButton.setTitleColor(movieViewModel.isFavorite ? .orange: .gray, for: .normal)
+    }
+
+    @IBAction func buttonTouchDown(_ sender: Any) {
+        viewController?.makeFavorite(cell: self)
     }
 }

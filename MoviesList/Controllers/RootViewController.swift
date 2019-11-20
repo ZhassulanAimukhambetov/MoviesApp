@@ -36,6 +36,7 @@ extension RootViewController: UICollectionViewDataSource {
                 collectionView.reloadItems(at: [indexPath])
             })
         }
+        cell.viewController = self
         return cell
     }
     
@@ -159,6 +160,13 @@ extension RootViewController: UICollectionViewDelegateFlowLayout {
         } else {
             collectionView.isHidden = false
             notifLabel.text = "Ничего не найдено"
+        }
+    }
+    
+    func makeFavorite(cell: UICollectionViewCell) {
+        if let indexPath = collectionView.indexPath(for: cell) {
+            movieViewModels[indexPath.row].isFavorite = movieViewModels[indexPath.row].isFavorite ? false : true
+            collectionView.reloadItems(at: [indexPath])
         }
     }
 }
