@@ -20,19 +20,12 @@ class DetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.title = movieVM?.title
-        NetworkService.shared.getImage(urlPath: movieVM?.backdrop_path) { (image) in
+        NetworkService.shared.getImage(urlPath: movieVM?.backdropPath) { (image) in
             self.posterImage.image = image
         }
-        languageLabel.text = movieVM?.original_language
+        languageLabel.text = movieVM?.originalLanguage
         overviewLabel.text = movieVM?.overview
-        titleLabel.text = movieVM?.original_title
+        titleLabel.text = movieVM?.originalTitle
         popularityLabel.text = movieVM?.popularity
-        
-        
-        
     }
-    
-    
-
-
 }

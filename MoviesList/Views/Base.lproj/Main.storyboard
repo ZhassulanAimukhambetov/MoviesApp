@@ -195,10 +195,10 @@
             </objects>
             <point key="canvasLocation" x="-206" y="-1069"/>
         </scene>
-        <!--View Controller-->
+        <!--Root View Controller-->
         <scene sceneID="txA-Cb-vW9">
             <objects>
-                <viewController id="2oO-zK-baO" customClass="ViewController" customModule="MoviesList" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="2oO-zK-baO" customClass="RootViewController" customModule="MoviesList" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="aqz-Vx-rza">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="724"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -214,7 +214,7 @@
                                 </connections>
                             </searchBar>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ничего не найдено." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ljt-0n-BFI">
-                                <rect key="frame" x="88.666666666666671" y="349" width="197.66666666666663" height="26.333333333333314"/>
+                                <rect key="frame" x="88.666666666666686" y="349" width="198" height="26"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -248,7 +248,7 @@
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
                                                 </imageView>
-                                                <stackView opaque="NO" contentMode="scaleAspectFill" axis="vertical" alignment="bottom" spacing="23" baselineRelativeArrangement="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CkQ-68-cmF">
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="bottom" spacing="23" baselineRelativeArrangement="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CkQ-68-cmF">
                                                     <rect key="frame" x="310" y="84" width="50" height="41.666666666666657"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="Рейтинг" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p6s-K1-j6y">
@@ -268,7 +268,7 @@
                                                         <constraint firstAttribute="height" constant="41.670000000000002" id="4el-Zw-8SK"/>
                                                     </constraints>
                                                 </stackView>
-                                                <stackView opaque="NO" contentMode="scaleAspectFill" axis="vertical" alignment="top" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="Vr8-Z7-1EH">
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="Vr8-Z7-1EH">
                                                     <rect key="frame" x="91" y="83" width="75.666666666666686" height="33.666666666666657"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Релиз" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GJM-fY-Ds6">
@@ -341,6 +341,7 @@
                     <navigationItem key="navigationItem" id="qqc-OG-niX"/>
                     <connections>
                         <outlet property="collectionView" destination="ago-tH-TsI" id="hAm-2j-RfA"/>
+                        <outlet property="notifLabel" destination="ljt-0n-BFI" id="7Vy-Zb-tJf"/>
                         <outlet property="searchBar" destination="WzE-Pu-akv" id="M0A-gu-AVZ"/>
                     </connections>
                 </viewController>

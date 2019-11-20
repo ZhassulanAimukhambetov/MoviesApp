@@ -11,20 +11,36 @@ import Foundation
 struct Movie: Decodable {
     let id: Int
     let title: String
-    let poster_path: String?
+    let posterPath: String?
     let adult: Bool
     let overview: String
-    let release_date: String?
-    let original_title: String
-    let original_language: String
-    let backdrop_path: String?
+    let releaseDate: String?
+    let originalTitle: String
+    let originalLanguage: String
+    let backdropPath: String?
     let popularity: Double
-    let vote_count: Int
+    let voteCount: Int
     let video: Bool
-    let vote_average: Double
+    let voteAverage: Double
+    
+    enum CodingKeys: String, CodingKey {
+        case id
+        case title
+        case posterPath = "poster_path"
+        case adult
+        case overview
+        case releaseDate = "release_date"
+        case originalTitle = "original_title"
+        case originalLanguage = "original_language"
+        case backdropPath = "backdrop_path"
+        case popularity
+        case voteCount = "vote_count"
+        case video
+        case voteAverage = "vote_average"
+    }
 }
 
-struct MovieJSON: Decodable {
+struct Result: Decodable {
     let results: [Movie]
     let page: Int
     let total_pages: Int

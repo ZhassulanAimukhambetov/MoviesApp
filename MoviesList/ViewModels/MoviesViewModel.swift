@@ -13,12 +13,12 @@ class MovieViewModel {
     let id: Int
     let title: String
     let overview: String
-    let poster_path: String?
-    let release_date: String?
+    let posterPath: String?
+    let releaseDate: String?
     let voteAverage: Double
-    let original_title: String
-    let original_language: String
-    let backdrop_path: String?
+    let originalTitle: String
+    let originalLanguage: String
+    let backdropPath: String?
     let popularity: String
     var rating: String {
         let star = "⋆"
@@ -37,15 +37,14 @@ class MovieViewModel {
         self.id = movie.id
         self.title = movie.title
         self.overview = movie.overview
-        self.poster_path = movie.poster_path
-        self.release_date = movie.release_date
-        self.voteAverage = movie.vote_average
-        self.backdrop_path = movie.backdrop_path
-        self.original_language = movie.original_language
-        self.original_title = movie.original_title
+        self.posterPath = movie.posterPath
+        self.releaseDate = movie.releaseDate
+        self.voteAverage = movie.voteAverage
+        self.backdropPath = movie.backdropPath
+        self.originalLanguage = movie.originalLanguage
+        self.originalTitle = movie.originalTitle
         self.popularity = String(movie.popularity)
     }
-    
 }
 
 

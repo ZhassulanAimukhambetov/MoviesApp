@@ -9,21 +9,20 @@
 import UIKit
 
 class MovieCell: UICollectionViewCell {
-
+    
     @IBOutlet weak var posterImage: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
-
+    
     @IBOutlet weak var ratingLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     
-    func configureMovieCVCell(movieViewModel: MovieViewModel) {
+    func configureMovieCVCell(movieViewModel: MovieViewModel, completion: @escaping () -> ()) {
         self.titleLabel.text = movieViewModel.title
-        self.dateLabel.text = movieViewModel.release_date
+        self.dateLabel.text = movieViewModel.releaseDate
         self.ratingLabel.text = movieViewModel.rating
         self.posterImage.image = nil
-        NetworkService.shared.getImage(urlPath: movieViewModel.poster_path) { (image) in
+        NetworkService.shared.getImage(urlPath: movieViewModel.posterPath) { (image) in
             self.posterImage.image = image
         }
     }
-    
 }
