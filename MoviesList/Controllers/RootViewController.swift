@@ -112,14 +112,7 @@ extension RootViewController: UICollectionViewDelegateFlowLayout {
     
     //Configure SearchBar
     func configureSearchBar() {
-        for view in searchBar.subviews {
-            for subview in view.subviews {
-                if subview .isKind(of: UITextField.self) {
-                    let textField: UITextField = subview as! UITextField
-                    textField.backgroundColor = UIColor(displayP3Red: 20/255, green: 20/255, blue: 20/255, alpha: 1)
-                }
-            }
-        }
+        searchBar.searchTextField.backgroundColor = UIColor(displayP3Red: 20/255, green: 20/255, blue: 20/255, alpha: 1)
     }
     //Get and search movies
     func getMovies(page: Int = 1) {

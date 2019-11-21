@@ -20,7 +20,14 @@ class MovieViewModel {
     let originalLanguage: String
     let backdropPath: String?
     let popularity: String
-    var isFavorite: Bool = false
+    var isFavorite: Bool {
+        get {
+            return UserDefaults.standard.bool(forKey: String(self.id))
+        }
+        set {
+            UserDefaults.standard.set(newValue, forKey: String(self.id))
+        }
+    }
     var rating: String {
         let star = "⋆"
         if voteAverage > 1 {
