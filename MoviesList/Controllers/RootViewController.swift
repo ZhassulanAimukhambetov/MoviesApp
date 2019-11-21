@@ -14,12 +14,22 @@ class RootViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var notifLabel: UILabel!
     
+    var refreshControl = UIRefreshControl()
     var movieViewModels = [MovieViewModel]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configureVC()
         getMovies()
+        refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
+        refreshControl.addTarget(self, action: #selector(refresh(sender:)), for: UIControl.Event.valueChanged)
+        collectionView.addSubview(refreshControl)
+    }
+    
+    @objc func refresh(sender:AnyObject) {
+        configureVC()
+        getMovies()
+        refreshControl.endRefreshing()
     }
 }
 
@@ -31,11 +41,7 @@ extension RootViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "movieCell", for: indexPath) as! MovieCell
-        cell.configureMovieCVCell(movieViewModel: movieViewModels[indexPath.row]) {
-            collectionView.performBatchUpdates({
-                collectionView.reloadItems(at: [indexPath])
-            })
-        }
+        cell.configureMovieCVCell(movieViewModel: movieViewModels[indexPath.row])
         cell.viewController = self
         return cell
     }
@@ -104,7 +110,7 @@ extension RootViewController: UICollectionViewDelegateFlowLayout {
     
     //Configure RootViewController
     func configureVC() {
-        collectionView.isHidden = true
+        collectionView.alwaysBounceVertical = true
         notifLabel.textColor = .gray
         notifLabel.text = "Загрузка..."
         configureSearchBar()
@@ -118,27 +124,27 @@ extension RootViewController: UICollectionViewDelegateFlowLayout {
     func getMovies(page: Int = 1) {
         NetworkService.shared.getMovies (page: page) { (moviesJSON) in
             guard let moviesJSON = moviesJSON else {
-                self.collectionView.isHidden = true
                 self.notifLabel.text = "Что-то пошло не так..."
+                self.notifLabel.isHidden = false
                 return
             }
-            self.collectionView.isHidden = false
             moviesJSON.results.forEach{self.movieViewModels.append(MovieViewModel(movie: $0))}
+            self.refreshControl.endRefreshing()
             self.collectionView.reloadData()
-            self.noResultOfsearch()
+            self.notifLabel.isHidden = true
         }
     }
     
     func searchMovies(page: Int = 1, searchText: String) {
         NetworkService.shared.searchMovies(page: page, query: searchText) { (moviesJSON) in
             guard let moviesJSON = moviesJSON else {
-                self.collectionView.isHidden = true
                 self.notifLabel.text = "Что-то пошло не так..."
+                self.notifLabel.isHidden = false
                 return
             }
-            self.collectionView.isHidden = false
             moviesJSON.results.forEach{self.movieViewModels.append(MovieViewModel(movie: $0))}
             self.collectionView.reloadData()
+            self.notifLabel.isHidden = true
             self.noResultOfsearch()
         }
     }
@@ -149,10 +155,10 @@ extension RootViewController: UICollectionViewDelegateFlowLayout {
     
     func noResultOfsearch() {
         if movieViewModels.count == 0 {
-            collectionView.isHidden = true
-        } else {
-            collectionView.isHidden = false
+            notifLabel.isHidden = false
             notifLabel.text = "Ничего не найдено"
+        } else {
+            notifLabel.isHidden = true
         }
     }
     

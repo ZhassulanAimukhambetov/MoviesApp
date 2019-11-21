@@ -210,12 +210,6 @@
                                     <outlet property="delegate" destination="2oO-zK-baO" id="s91-Qu-hwe"/>
                                 </connections>
                             </searchBar>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ничего не найдено." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ljt-0n-BFI">
-                                <rect key="frame" x="88.666666666666671" y="349" width="197.66666666666663" height="26.333333333333314"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ago-tH-TsI">
                                 <rect key="frame" x="0.0" y="56" width="375" height="668"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
@@ -225,6 +219,13 @@
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
+                                <label key="backgroundView" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ничего не найдено." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ljt-0n-BFI">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="668"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="movieCell" id="oQI-1r-QGF" customClass="MovieCell" customModule="MoviesList" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="125"/>
@@ -339,12 +340,10 @@
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="ljt-0n-BFI" firstAttribute="centerY" secondItem="aqz-Vx-rza" secondAttribute="centerY" id="5n6-eq-RGL"/>
                             <constraint firstItem="WzE-Pu-akv" firstAttribute="leading" secondItem="8M4-IB-W7l" secondAttribute="leading" id="ABt-Lu-n7B"/>
                             <constraint firstAttribute="bottom" secondItem="ago-tH-TsI" secondAttribute="bottom" id="T5L-TB-GNx"/>
                             <constraint firstItem="ago-tH-TsI" firstAttribute="leading" secondItem="8M4-IB-W7l" secondAttribute="leading" id="TlU-FN-3RW"/>
                             <constraint firstItem="ago-tH-TsI" firstAttribute="trailing" secondItem="8M4-IB-W7l" secondAttribute="trailing" id="brQ-vn-JLv"/>
-                            <constraint firstItem="ljt-0n-BFI" firstAttribute="centerX" secondItem="aqz-Vx-rza" secondAttribute="centerX" id="g8S-pz-2CG"/>
                             <constraint firstItem="ago-tH-TsI" firstAttribute="top" secondItem="WzE-Pu-akv" secondAttribute="bottom" id="hHw-DZ-gOm"/>
                             <constraint firstItem="WzE-Pu-akv" firstAttribute="trailing" secondItem="8M4-IB-W7l" secondAttribute="trailing" id="nuN-xm-SB6"/>
                             <constraint firstItem="WzE-Pu-akv" firstAttribute="top" secondItem="8M4-IB-W7l" secondAttribute="top" id="pyX-0u-Uyc"/>

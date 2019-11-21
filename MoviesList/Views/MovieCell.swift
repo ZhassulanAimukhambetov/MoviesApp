@@ -18,7 +18,7 @@ class MovieCell: UICollectionViewCell {
     
     weak var viewController: RootViewController?
     
-    func configureMovieCVCell(movieViewModel: MovieViewModel, completion: @escaping () -> ()) {
+    func configureMovieCVCell(movieViewModel: MovieViewModel) {
         self.titleLabel.text = movieViewModel.title
         self.dateLabel.text = movieViewModel.releaseDate
         self.ratingLabel.text = movieViewModel.rating
